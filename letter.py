@@ -42,5 +42,5 @@ password = os.getenv("MY_PASS")
  
 server = smtplib.SMTP_SSL("smtp.yandex.ru:465")
 server.login(login, password)
-server.sendmail(os.getenv("MY_LOGIN"), os.getenv("MY_PASS"))
+server.sendmail(email_from, email_to, text)
 server.quit()
