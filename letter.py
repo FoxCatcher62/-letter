@@ -35,10 +35,13 @@ text = text.replace("%friend_name%", friend_name)
 text = text.replace("%my_name%", my_name)
 text = text.encode("UTF-8")
 
-load_dotenv()
+load_dotenv("pas.env")
 MY_LOGIN = os.getenv("MY_LOGIN")
 MY_PASS = os.getenv("MY_PASS")
- 
+
+
+print(MY_LOGIN)
+print(MY_PASS)
 server = smtplib.SMTP_SSL("smtp.mail.ru:465")
 server.login(MY_LOGIN, MY_PASS)
 server.sendmail(email_from, email_to, text)
