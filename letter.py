@@ -2,16 +2,15 @@
 from dotenv import load_dotenv
 import smtplib
 import os 
-email_to = "ares.preobrazhenskiy@mail.ru"
-email_from = "ares.preobrazhenskiy@yandex.ru"
+email_to = "ares.preobrazhenskiy@yandex.ru"
+email_from = "ares.preobrazhenskiy@mail.ru"
 topic = "Приглашение!"
-text = ("""\
-From: ares.preobrazhenskiy@yandex.ru
-To: ares.preobrazhenskiy@mail.ru
+text = f"""\
+From: {email_from}
+To: {email_to}
 Subject: "Приглашение!"
 Content-Type: text/plain; charset="UTF-8";
-
- """ + """Привет, %friend_name%! %my_name% приглашает тебя на сайт %website%!
+Привет, %friend_name%! %my_name% приглашает тебя на сайт %website%!
 
 %website% — это новая версия онлайн-курса по программированию. 
 Изучаем Python и не только. Решаем задачи. Получаем ревью от преподавателя. 
@@ -26,7 +25,7 @@ Content-Type: text/plain; charset="UTF-8";
 
 Регистрируйся → %website%  
 На курсы, которые еще не вышли, можно подписаться и получить уведомление о релизе сразу на имейл.
-""")
+"""
 website = "https://dvmn.org/profession-ref-program/ares.preobrazhenskiy/VWkbS/"
 friend_name = "Дима"
 my_name = "Артем"
@@ -37,10 +36,10 @@ text = text.replace("%my_name%", my_name)
 text = text.encode("UTF-8")
 
 load_dotenv()
-login = os.getenv("MY_LOGIN")
-password = os.getenv("MY_PASS")
+MY_LOGIN = os.getenv("MY_LOGIN")
+MY_PASS = os.getenv("MY_PASS")
  
-server = smtplib.SMTP_SSL("smtp.yandex.ru:465")
-server.login(login, password)
+server = smtplib.SMTP_SSL("smtp.mail.ru:465")
+server.login(MY_LOGIN, MY_PASS)
 server.sendmail(email_from, email_to, text)
 server.quit()
