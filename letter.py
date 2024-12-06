@@ -1,10 +1,10 @@
 from dotenv import load_dotenv
 import smtplib
 import os 
-email_to = "ares.preobrazhenskiy@yandex.ru"
-email_from = "ares.preobrazhenskiy@mail.ru"
+email_to = "ares.preobrazhenskiy@gmail.com"
+email_from = "ares.preobrazhenskiy@yandex.ru"
 topic = "Приглашение!"
-text = f"""\
+text = f"""\\\
 From: {email_from}
 To: {email_to}
 Subject: "Приглашение!"
@@ -38,7 +38,7 @@ load_dotenv("pas.env")
 MY_LOGIN = os.getenv("MY_LOGIN")
 MY_PASS = os.getenv("MY_PASS")
 
-server = smtplib.SMTP_SSL("smtp.mail.ru:465")
+server = smtplib.SMTP_SSL("smtp.yandex.ru:465")
 server.login(MY_LOGIN, MY_PASS)
 server.sendmail(email_from, email_to, text)
 server.quit()
