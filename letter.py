@@ -36,6 +36,8 @@ text = text.replace("%my_name%", my_name)
 text = text.encode("UTF-8")
 
 load_dotenv("pas.env")
+MY_LOGIN = os.getenv("MY_LOGIN")
+MY_PASS = os.getenv("MY_PASS")
 
 server = smtplib.SMTP_SSL("smtp.mail.ru:465")
 server.login(MY_LOGIN, MY_PASS)
