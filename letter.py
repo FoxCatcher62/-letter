@@ -4,7 +4,7 @@ import os
 email_to = "ares.preobrazhenskiy@gmail.com"
 email_from = "ares.preobrazhenskiy@yandex.ru"
 topic = "Приглашение!"
-text = f"""\\\
+text = f"""\
 From: {email_from}
 To: {email_to}
 Subject: "Приглашение!"
